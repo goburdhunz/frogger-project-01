@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+
+@import 'container';
+@import 'pavement';
+@import 'road1';
+@import 'road2';
+@import 'trees';
+@import 'river';
+@import 'lilypad';
+@import 'frog';
+@import 'carObstacles';
+@import 'boxes';

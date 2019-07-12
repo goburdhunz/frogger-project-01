@@ -1,4 +1,45 @@
+* {
+  box-sizing: border-box; }
+
 body {
-  background-color: red;
-  color: white;
-}
+  margin: 0; }
+
+.container {
+  width: 50%;
+  margin: 50px auto;
+  border: 1px solid black;
+  text-align: center; }
+
+.pavement {
+  background-color: grey; }
+
+.road1 {
+  background-color: black; }
+
+.road2 {
+  background-color: black; }
+
+.trees {
+  background-color: green; }
+
+.river {
+  background-color: blue; }
+
+.lilypad {
+  background-color: #98fb98; }
+
+.frog {
+  background-image: url("https://images.unsplash.com/photo-1465502122287-9eab969fac20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1504&q=80");
+  background-size: cover; }
+
+.car {
+  background-color: purple; }
+
+div {
+  height: 40px;
+  width: 60px;
+  display: inline-block;
+  border: 0.4px solid red;
+  margin: 0; }
+
+/*# sourceMappingURL=style.css.map */
