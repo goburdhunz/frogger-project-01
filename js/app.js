@@ -17,20 +17,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentIndex = 105
   const width = 10
+  let timerId = null
+  let timeRemaining = +countdownDisplay.textContent
 
+  // start the game = start positions and movment
   function startGame() {
     startingPosition()
     const moveFrog = document.addEventListener('keyup', moveMyFrog)
+    carObstaclesMove = setInterval(makeCarsMove,1000)
+    logObstaclesMove = setInterval(makeLogsMove,1000)
   }
 
-  startGame()
+  // timer countdown
+  function countdown() {
+    timeRemaining--
+    countdownDisplay.textContent = timeRemaining
 
-  // function countdown() {
-  //
-  // }
+    if(timeRemaining === 0) {
+      clearInterval(timerId)
+      timerId = null
+    }
+  }
+
+  startButtonDisplay.addEventListener('click', startGame)
+
+  startButtonDisplay.addEventListener('click', () => {
+    if(timerId) return false
+    timerId = setInterval(countdown, 1000)
+  })
+
 
   frogArea[105].classList.add('frog')
 
+  // Move the frod
   function moveMyFrog(e) {
 
     frogArea[currentIndex].classList.remove('frog')
@@ -75,6 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+
+  // make obstacles move
   function makeCarsMove() {
     for (let i = 0; i < allRoadDivs.length; i++) {
       if (allRoadDivs[i].classList.contains('car')) {
@@ -83,11 +104,11 @@ document.addEventListener('DOMContentLoaded', () => {
         allRoadDivs[i].classList.add('car')
       }
     }
+
   }
 
   function makeLogsMove() {
     for (let i = 0; i < allRiverDivs.length; i++) {
-      console.log(i)
       if (allRiverDivs[i].classList.contains('log')) {
         allRiverDivs[i].classList.remove('log')
         i++
@@ -97,12 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  carObstaclesMove = setInterval(makeCarsMove,1000)
-  logObstaclesMove = setInterval(makeLogsMove,1000)
+  // Set boundairies for movement
 
+  function fixCarBoundaries() {
 
-
-
+  }
 
 
 
