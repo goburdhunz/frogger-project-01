@@ -6,17 +6,14 @@ body {
 
 .container {
   width: 50%;
-  margin: 50px auto;
+  margin: 0 auto;
   border: 1px solid black;
   text-align: center; }
 
 .pavement {
   background-color: grey; }
 
-.road1 {
-  background-color: black; }
-
-.road2 {
+.road {
   background-color: black; }
 
 .trees {
@@ -41,5 +38,15 @@ div {
   display: inline-block;
   border: 0.4px solid red;
   margin: 0; }
+
+.log {
+  background-color: brown; }
+
+.infoheader {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  font-size: 25px; }
 
 /*# sourceMappingURL=style.css.map */

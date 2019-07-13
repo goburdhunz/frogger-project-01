@@ -1,31 +1,35 @@
-//
-// class NewFroggerGame {
-//   constructor() {
-//
-//   }
-// }
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  const allPavementDivs = document.querySelectorAll('.pavement div')
-  const allRoad1Divs = document.querySelectorAll('.road1 div')
-  const allRoad2Divs = document.querySelectorAll('.road2 div')
-  const allTreesDivs = document.querySelectorAll('.trees div')
-  const allRiverDivs = document.querySelectorAll('.river div')
-  const allLilypadDivs = document.querySelectorAll('.lilypad div')
+  const allPavementDivs = document.querySelectorAll('.pavement')
+  const allRoadDivs = document.querySelectorAll('.road')
+  const allTreesDivs = document.querySelectorAll('.trees')
+  const allRiverDivs = document.querySelectorAll('.river')
+  const allLilypadDivs = document.querySelectorAll('.lilypad')
+
   const frogArea = document.querySelectorAll('.container div')
-  // console.log(frogArea)
+
+  const startButtonDisplay = document.querySelector('.start')
+  let countdownDisplay = document.querySelector('.countdown')
+  let scoreCountDisplay = document.querySelector('p span')
+
+  let carObstaclesMove = null
+  let logObstaclesMove = null
 
   let currentIndex = 105
   const width = 10
 
-  function addFrog() {
-    frogArea[105].classList.add('frog')
+  function startGame() {
+    startingPosition()
+    const moveFrog = document.addEventListener('keyup', moveMyFrog)
   }
 
-  addFrog()
+  startGame()
+
+  // function countdown() {
+  //
+  // }
+
+  frogArea[105].classList.add('frog')
 
   function moveMyFrog(e) {
 
@@ -56,8 +60,45 @@ document.addEventListener('DOMContentLoaded', () => {
     frogArea[currentIndex].classList.add('frog')
   }
 
-  document.addEventListener('keyup', moveMyFrog)
 
+  // add car/log obstacles to starting index
+  function startingPosition() {
+    for (let i = 0; i < allRoadDivs.length; i++) {
+      if (i % 3 === 0) {
+        allRoadDivs[i].classList.add('car')
+      }
+      for (let i = 0; i < allRiverDivs.length; i++) {
+        if (i % 4 === 0) {
+          allRiverDivs[i].classList.add('log')
+        }
+      }
+    }
+  }
+
+  function makeCarsMove() {
+    for (let i = 0; i < allRoadDivs.length; i++) {
+      if (allRoadDivs[i].classList.contains('car')) {
+        allRoadDivs[i].classList.remove('car')
+        i++
+        allRoadDivs[i].classList.add('car')
+      }
+    }
+  }
+
+  function makeLogsMove() {
+    for (let i = 0; i < allRiverDivs.length; i++) {
+      console.log(i)
+      if (allRiverDivs[i].classList.contains('log')) {
+        allRiverDivs[i].classList.remove('log')
+        i++
+        allRiverDivs[i].classList.add('log')
+      }
+    }
+  }
+
+
+  carObstaclesMove = setInterval(makeCarsMove,1000)
+  logObstaclesMove = setInterval(makeLogsMove,1000)
 
 
 
