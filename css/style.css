@@ -7,45 +7,55 @@ body {
 .container {
   width: 50%;
   margin: 0 auto;
-  border: 1px solid black;
   text-align: center; }
 
 .pavement {
-  background-color: grey; }
+  background-color: grey;
+  height: 50px; }
 
 .road {
-  background-color: black; }
+  background-image: url("https://media3.giphy.com/media/fmsA2RG7TKxuo/source.gif");
+  background-size: cover; }
 
 .trees {
   background-color: green; }
+
+.log {
+  background-color: brown;
+  width: 60px;
+  height: 50px; }
 
 .river {
   background-color: blue; }
 
 .lilypad {
+  background-image: url("https://78.media.tumblr.com/6d8cfc8333b20bfaa977336030978b9f/tumblr_npmvlvxBv01r9co7bo1_500.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
   background-color: #98fb98; }
 
 .frog {
-  background-image: url("https://images.unsplash.com/photo-1465502122287-9eab969fac20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1504&q=80");
-  background-size: cover; }
+  background-image: url("https://giffiles.alphacoders.com/844/8447.gif");
+  background-size: 85%;
+  padding-bottom: 50px; }
 
 .car {
-  background-color: purple; }
+  background-image: url("http://media.omaketheater.com/goodies/uploads/nyan-car.gif");
+  background-size: 100%; }
 
 .riverreverse {
   background-color: blue; }
 
 div {
-  height: 40px;
+  height: 50px;
   width: 60px;
   display: inline-block;
-  border: 0.4px solid red;
   margin: 0; }
 
 .log {
   background-color: brown;
   width: 60px;
-  height: 40px; }
+  height: 50px; }
 
 .infoheader {
   margin: 20px;
@@ -53,5 +63,13 @@ div {
   justify-content: center;
   justify-content: space-between;
   font-size: 25px; }
+
+.treeimages {
+  background-image: url("https://i.gifer.com/2V51.gif");
+  background-size: 90%; }
+
+.killerplant {
+  background-image: url("http://www.skytyrannosaur.com/wp-content/uploads/2015/12/lilypad_snap.gif");
+  background-size: 100%; }
 
 /*# sourceMappingURL=style.css.map */

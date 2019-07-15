@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // start the game = start positions and movment
   function startGame() {
-    carObstaclesMove = setInterval(makeCarsMove,1000)
-    logObstaclesMove = setInterval(makeLogsMove,1000)
-    makeReverseMove = setInterval(makeReverseLogsMove,1000)
+    carObstaclesMove = setInterval(makeCarsMove,500)
+    logObstaclesMove = setInterval(makeLogsMove,500)
+    makeReverseMove = setInterval(makeReverseLogsMove,300)
     const moveFrog = document.addEventListener('keyup', moveMyFrog)
   }
 
@@ -86,27 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     frogArea[currentIndex].classList.add('frog')
     carCollision()
+    killerPlantCollision()
   }
-
-
-  // add car/log obstacles to starting index
-  // function startingPosition() {
-  //   for (let i = 0; i < allRoadDivs.length; i++) {
-  //     if (i % 4 === 0) {
-  //       allRoadDivs[i].classList.add('car')
-  //     }
-  //     for (let i = 0; i < allRiverDivs.length; i++) {
-  //       if (i % 4 === 0) {
-  //         allRiverDivs[i].classList.add('log')
-  //       }
-  //     }
-  //   }
-  // }
 
 
   // Starting position/make obstacles move
   const carIndices = [0,4,8,12,16,20,24,28,32,36]
-
   carIndices.forEach(carIndex => allRoadDivs[carIndex].classList.add('car'))
 
   function makeCarsMove() {
@@ -120,10 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       allRoadDivs[carIndices[i]].classList.add('car')
     }
+    frogColission()
   }
 
   const logIndices = [1,2,3,5,6,7,12,13,14,17,18,19]
-
   logIndices.forEach(logIndex => allRiverDivs[logIndex].classList.add('log'))
 
   function makeLogsMove() {
@@ -137,12 +122,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       allRiverDivs[logIndices[i]].classList.add('log')
     }
-    frogColission()
   }
 
 
   const reverseRiver = [0,1,2,6,7,8]
-
   reverseRiver.forEach(logIndex => allReverseLogsDivs[logIndex].classList.add('log'))
 
   function makeReverseLogsMove() {
@@ -157,14 +140,15 @@ document.addEventListener('DOMContentLoaded', () => {
       allReverseLogsDivs[reverseRiver[i]].classList.add('log')
     }
   }
+
   // When a car runs into a frog
   function frogColission() {
     if (frogArea[currentIndex].classList.contains('car')) {
       console.log('frog Break')
-    }
-    // else console.log('frog on')
+    } else console.log('frog on')
   }
-  // When a frog runs into a car
+
+  // When a frog runs into a frog
   function carCollision() {
     if (frogArea[currentIndex].classList.contains('car')) {
       console.log('Break')
@@ -172,23 +156,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
-  // carCollision()
+  // When a frog runs into a frog
+  function killerPlantCollision() {
+    if (frogArea[currentIndex].classList.contains('killerplant')) {
+      console.log('KillerPlantbreak')
+    } else console.log('carry on')
 
+  }
 
-  // allRoadDivs.forEach((element) => {
-  //   // console.log(element)
-  //   if (element.classList.contains('road frog car')) {
-  //     console.log('Break')
-  //   } else console.log('carry on')
-  // })
+  const treePosition = [10,12,14,16,18]
+  treePosition.forEach(logIndex => allTreesDivs[logIndex].classList.add('treeimages'))
 
+  //
+  // function occupyTreeSpace() {
+  //   if (frogArea[currentIndex].classList.contains('treeimages')) {
+  //
+  //
+  //   }
+  // }
 
-
-
-
-
-
-
+  const killerPlantPosition = [1,3,5,7,9]
+  killerPlantPosition.forEach(logIndex => allLilypadDivs[logIndex].classList.add('killerplant'))
 
 
 
