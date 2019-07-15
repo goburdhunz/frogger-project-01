@@ -32,6 +32,9 @@ body {
 .car {
   background-color: purple; }
 
+.riverreverse {
+  background-color: blue; }
+
 div {
   height: 40px;
   width: 60px;
@@ -40,7 +43,9 @@ div {
   margin: 0; }
 
 .log {
-  background-color: brown; }
+  background-color: brown;
+  width: 60px;
+  height: 40px; }
 
 .infoheader {
   margin: 20px;
