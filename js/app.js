@@ -134,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function makeLogsMove() {
     ridingTheLogs()
+    endOfTheLogCollision()
     for (let i = logIndices.length-1; i >= 0; i--) {
       allRiverDivs[logIndices[i]].classList.remove('log')
 
@@ -162,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function makeReverseLogsMove() {
     ridingTheLogsBackwards()
+    endOfTheLogCollision()
     for (let i = 0; i < reverseRiver.length; i++) {
       allReverseLogsDivs[reverseRiver[i]].classList.remove('log')
 
@@ -221,6 +223,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } else console.log('carry on')
   }
 
+  // reach end of the log flow and running into wall breaks the game
+  function endOfTheLogCollision() {
+    if (currentIndex % width === width - 1 || currentIndex % width === 0) {
+      breakGame()
+    }
+  }
 
   // adding the tree image class
   const treePosition = [10,12,14,16,18]
@@ -241,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scoreCountDisplay.textContent = currentScore
   }
 
-  // Game won when this is called nd level incremented
+  // Game won when this is called and level incremented
   function winGame() {
     if (frogArea[currentIndex].classList.contains('lilypad')) {
       frogArea[currentIndex].classList.remove('frog')
@@ -253,7 +261,6 @@ document.addEventListener('DOMContentLoaded', () => {
       makeReverseMove = setInterval(makeReverseLogsMove,450)
     }
   }
-
 
   // Create score logic
   function scoreMe() {
@@ -267,17 +274,10 @@ document.addEventListener('DOMContentLoaded', () => {
       currentScore += 20
       scoreCountDisplay.textContent = currentScore
     } else if ((frogArea[currentIndex].classList.contains('lilypad'))) {
-      currentScore += 100
+      currentScore += 10
       scoreCountDisplay.textContent = currentScore
     }
   }
-
-
-
-
-
-
-
 
 
 

@@ -6,7 +6,7 @@ body {
   background-color: papayawhip; }
 
 .container {
-  width: 50%;
+  width: 55%;
   margin: 0 auto;
   text-align: center; }
 
@@ -45,15 +45,15 @@ body {
   background-color: blue; }
 
 div {
-  height: 50px;
-  width: 60px;
+  height: 55px;
+  width: 65px;
   display: inline-block;
   margin: -2px; }
 
 .log {
   background-color: brown;
-  height: 50px;
-  width: 60px;
+  height: 55px;
+  width: 65px;
   border: 1px solid black; }
 
 .infoheader {
