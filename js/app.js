@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
           currentIndex - width >= 0 &&
           !frogArea[currentIndex - width].classList.contains('treeimages')
         ) currentIndex -= width
+        scoreMe()
         // up
         break
       case 39:
@@ -104,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
     killerPlantCollision()
     waterCollision()
     waterCollisionReverse()
-    scoreMe()
     winGame()
   }
 
