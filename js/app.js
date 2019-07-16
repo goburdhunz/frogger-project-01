@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let countdownDisplay = document.querySelector('.countdown')
   let scoreCountDisplay = document.querySelector('.score')
   let currentLevelDisplay = document.querySelector('.level')
-  console.log(currentLevelDisplay)
 
   // interval id's
   let carObstaclesMove = null
@@ -33,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let timerId = null
   let timeRemaining = +countdownDisplay.textContent
   let currentLevel = +currentLevelDisplay.textContent
+  let currentScore = +scoreCountDisplay.textContent
 
   // start the game = start positions and movment
   function startGame() {
@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     killerPlantCollision()
     waterCollision()
     waterCollisionReverse()
+    scoreMe()
     winGame()
   }
 
@@ -236,6 +237,8 @@ document.addEventListener('DOMContentLoaded', () => {
     frogArea[currentIndex].classList.remove('frog')
     currentIndex = 105
     frogArea[currentIndex].classList.add('frog')
+    currentScore = 0
+    scoreCountDisplay.textContent = currentScore
   }
 
   // Game won when this is called nd level incremented
@@ -248,6 +251,24 @@ document.addEventListener('DOMContentLoaded', () => {
       carObstaclesMove = setInterval(makeCarsMove,450)
       logObstaclesMove = setInterval(makeLogsMove,750)
       makeReverseMove = setInterval(makeReverseLogsMove,450)
+    }
+  }
+
+
+  // Create score logic
+  function scoreMe() {
+    if (frogArea[currentIndex].classList.contains('road')) {
+      currentScore += 10
+      scoreCountDisplay.textContent = currentScore
+    } else if (frogArea[currentIndex].classList.contains('trees')) {
+      currentScore += 5
+      scoreCountDisplay.textContent = currentScore
+    } else if ((frogArea[currentIndex].classList.contains('log'))) {
+      currentScore += 20
+      scoreCountDisplay.textContent = currentScore
+    } else if ((frogArea[currentIndex].classList.contains('lilypad'))) {
+      currentScore += 100
+      scoreCountDisplay.textContent = currentScore
     }
   }
 
