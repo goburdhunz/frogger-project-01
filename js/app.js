@@ -85,13 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // down
         break
     }
-    playJumpingSound()
+    // playJumpingSound()
     frogArea[currentIndex].classList.add('frog')
     carCollision()
     killerPlantCollision()
     occupyTreeSpace()
     waterCollision()
-    // ridingTheLogs()
   }
 
 
@@ -111,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
       allRoadDivs[carIndices[i]].classList.add('car')
     }
     frogColission()
-    playDrivingSound()
+    // playDrivingSound()
   }
 
   const logIndices = [1,2,3,5,6,7,12,13,14,17,18,19]
@@ -127,6 +126,17 @@ document.addEventListener('DOMContentLoaded', () => {
         logIndices[i] += 1
       }
       allRiverDivs[logIndices[i]].classList.add('log')
+    }
+    ridingTheLogs()
+  }
+
+  function ridingTheLogs() {
+    for (let i = logIndices.length-1; i >= 0; i--) {
+      if (allRiverDivs[logIndices[i]].classList.contains('frog')) {
+        frogArea[currentIndex].classList.remove('frog')
+        currentIndex++
+        frogArea[currentIndex].classList.add('frog')
+      }
     }
   }
 
@@ -145,6 +155,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       allReverseLogsDivs[reverseRiver[i]].classList.add('log')
     }
+    ridingTheLogsBackwards()
+  }
+
+  function ridingTheLogsBackwards() {
+    for (let i = 0; i < reverseRiver.length; i++) {
+      if (allReverseLogsDivs[reverseRiver[i]].classList.contains('frog')) {
+        frogArea[currentIndex].classList.remove('frog')
+        currentIndex--
+        frogArea[currentIndex].classList.add('frog')
+      }
+    }
   }
 
   // When a car runs into a frog
@@ -154,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else console.log('frog on')
   }
 
-  // When a frog runs into a frog
+  // When a frog runs into a car
   function carCollision() {
     if (frogArea[currentIndex].classList.contains('car')) {
       console.log('Break')
@@ -194,43 +215,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const killerPlantPosition = [1,3,5,7,9]
   killerPlantPosition.forEach(logIndex => allLilypadDivs[logIndex].classList.add('killerplant'))
 
+  // Block access to these elements divs within frogarea - remove fropm frogArea array
+  // frogArea[1,3,5,7,9] - break, no go area for frog
+  // treeArea[1,3,5,7,9] - break, no go area for frog
 
-  function ridingTheLogs() {
-    if (frogArea[currentIndex].classList.contains('log')) {
-      console.log('lets ride out')
-      while (frogArea[currentIndex].classList.contains('log')) {
-        frogArea[currentIndex]
-      }
-    }
-  }
 
-  function playJumpingSound() {
-    frogArea.forEach(a => {
-      const frogJumpSound = document.createElement('AUDIO')
-      frogJumpSound.src = 'audio/jumpSound.mp4'
-      a.appendChild(frogJumpSound)
-      if(frogJumpSound.paused) {
-        frogJumpSound.play()
-      } else {
-        frogJumpSound.pause()
-        frogJumpSound.currenTime = 0
-      }
-    })
-  }
 
-  function playDrivingSound() {
-    allRoadDivs.forEach(a => {
-      const carDrivingSound = document.createElement('AUDIO')
-      carDrivingSound.src = 'audio/Urban Traffic-SoundBible.com-1217469275.wav'
-      a.appendChild(carDrivingSound)
-      if (carDrivingSound.paused) {
-        carDrivingSound.play()
-      } if (frogArea[currentIndex].classList.contains(!'road')) {
-        carDrivingSound.pause()
-        carDrivingSound.currenTime = 0
-      }
-    })
-  }
+
+  // function playJumpingSound() {
+  //   frogArea.forEach(a => {
+  //     const frogJumpSound = document.createElement('AUDIO')
+  //     frogJumpSound.src = 'audio/jumpSound.mp4'
+  //     a.appendChild(frogJumpSound)
+  //     if(frogJumpSound.paused) {
+  //       frogJumpSound.play()
+  //     } else {
+  //       frogJumpSound.pause()
+  //       frogJumpSound.currenTime = 0
+  //     }
+  //   })
+  // }
+  //
+  // function playDrivingSound() {
+  //   allRoadDivs.forEach(a => {
+  //     const carDrivingSound = document.createElement('AUDIO')
+  //     carDrivingSound.src = 'audio/Urban Traffic-SoundBible.com-1217469275.wav'
+  //     a.appendChild(carDrivingSound)
+  //     if (carDrivingSound.paused) {
+  //       carDrivingSound.play()
+  //     } if (frogArea[currentIndex].classList.contains(!'road')) {
+  //       carDrivingSound.pause()
+  //       carDrivingSound.currenTime = 0
+  //     }
+  //   })
+  // }
 
 
 

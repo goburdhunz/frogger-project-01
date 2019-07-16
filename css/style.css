@@ -2,7 +2,8 @@
   box-sizing: border-box; }
 
 body {
-  margin: 0; }
+  margin: 0;
+  background-color: papayawhip; }
 
 .container {
   width: 50%;
