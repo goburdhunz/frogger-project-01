@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Whole moveable area for frog
   const frogArea = document.querySelectorAll('.container div')
+  console.log(frogArea)
 
   // Header button, countdown and score display
   const startButtonDisplay = document.querySelector('.start')
@@ -101,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     carCollision()
     killerPlantCollision()
     waterCollision()
+    waterCollisionReverse()
   }
 
 
@@ -182,14 +184,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // When a car runs into a frog
   function frogColission() {
     if (frogArea[currentIndex].classList.contains('car')) {
-      console.log('frog Break')
+      breakGame()
     } else console.log('frog on')
   }
 
   // When a frog runs into a car
   function carCollision() {
     if (frogArea[currentIndex].classList.contains('car')) {
-      console.log('Break')
+      breakGame()
     } else console.log('carry on')
 
   }
@@ -197,18 +199,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // When a frog runs into a killerplant
   function killerPlantCollision() {
     if (frogArea[currentIndex].classList.contains('killerplant')) {
-      console.log('KillerPlantbreak')
+      breakGame()
     } else console.log('carry on')
 
   }
 
   // When a frog falls into the water
   function waterCollision() {
-    if (frogArea[currentIndex].classList.contains('river')) {
-      console.log('Help Im drowning')
+    if (frogArea[currentIndex].classList.contains('river') && !frogArea[currentIndex].classList.contains('log')) {
+      breakGame()
     } else console.log('carry on')
-
   }
+
+  // When a frog falls into the water on the reverse flowing river
+  function waterCollisionReverse() {
+    if (frogArea[currentIndex].classList.contains('riverreverse') && !frogArea[currentIndex].classList.contains('log')) {
+      breakGame()
+    } else console.log('carry on')
+  }
+
+
+
 
   // adding the tree image class
   const treePosition = [10,12,14,16,18]
@@ -218,6 +229,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // Added a killer plant next to the 'safety' lilypads
   const killerPlantPosition = [1,3,5,7,9]
   killerPlantPosition.forEach(logIndex => allLilypadDivs[logIndex].classList.add('killerplant'))
+
+
+  function breakGame() {
+    frogArea[currentIndex].classList.remove('frog')
+    currentIndex = 105
+    frogArea[currentIndex].classList.add('frog')
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
