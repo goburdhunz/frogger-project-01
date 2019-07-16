@@ -7,11 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const allRiverDivs = document.querySelectorAll('.river')
   const allLilypadDivs = document.querySelectorAll('.lilypad')
   const allReverseLogsDivs = document.querySelectorAll('.riverreverse')
-  console.log(allReverseLogsDivs)
+
 
 
   // Whole moveable area for frog
   const frogArea = document.querySelectorAll('.container div')
+  console.log(frogArea)
 
   // Header button, countdown and score display
   const startButtonDisplay = document.querySelector('.start')
@@ -35,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // start the game = start positions and movment
   function startGame() {
     carObstaclesMove = setInterval(makeCarsMove,500)
-    logObstaclesMove = setInterval(makeLogsMove,500)
-    makeReverseMove = setInterval(makeReverseLogsMove,300)
+    logObstaclesMove = setInterval(makeLogsMove,800)
+    makeReverseMove = setInterval(makeReverseLogsMove,500)
     const moveFrog = document.addEventListener('keyup', moveMyFrog)
   }
 
@@ -84,9 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // down
         break
     }
+    playJumpingSound()
     frogArea[currentIndex].classList.add('frog')
     carCollision()
     killerPlantCollision()
+    occupyTreeSpace()
+    waterCollision()
+    // ridingTheLogs()
   }
 
 
@@ -106,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
       allRoadDivs[carIndices[i]].classList.add('car')
     }
     frogColission()
+    playDrivingSound()
   }
 
   const logIndices = [1,2,3,5,6,7,12,13,14,17,18,19]
@@ -164,19 +170,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
+  // When a frog falls into the water
+  function waterCollision() {
+    if (frogArea[currentIndex].classList.contains('river')) {
+      console.log('Help Im drowning')
+    } else console.log('carry on')
+
+  }
+
+  // adding the tree image class
   const treePosition = [10,12,14,16,18]
   treePosition.forEach(logIndex => allTreesDivs[logIndex].classList.add('treeimages'))
 
-  //
-  // function occupyTreeSpace() {
-  //   if (frogArea[currentIndex].classList.contains('treeimages')) {
-  //
-  //
-  //   }
-  // }
 
+  // Adding logic so the frog cannot occupy the same space as the tree
+  function occupyTreeSpace() {
+    if (frogArea[currentIndex].classList.contains('treeimages')) {
+      console.log('hmm there is a tree here')
+    }
+  }
+
+  // Added a killer plant next to the 'safety' lilypads
   const killerPlantPosition = [1,3,5,7,9]
   killerPlantPosition.forEach(logIndex => allLilypadDivs[logIndex].classList.add('killerplant'))
+
+
+  function ridingTheLogs() {
+    if (frogArea[currentIndex].classList.contains('log')) {
+      console.log('lets ride out')
+      while (frogArea[currentIndex].classList.contains('log')) {
+        frogArea[currentIndex]
+      }
+    }
+  }
+
+  function playJumpingSound() {
+    frogArea.forEach(a => {
+      const frogJumpSound = document.createElement('AUDIO')
+      frogJumpSound.src = 'audio/jumpSound.mp4'
+      a.appendChild(frogJumpSound)
+      if(frogJumpSound.paused) {
+        frogJumpSound.play()
+      } else {
+        frogJumpSound.pause()
+        frogJumpSound.currenTime = 0
+      }
+    })
+  }
+
+  function playDrivingSound() {
+    allRoadDivs.forEach(a => {
+      const carDrivingSound = document.createElement('AUDIO')
+      carDrivingSound.src = 'audio/Urban Traffic-SoundBible.com-1217469275.wav'
+      a.appendChild(carDrivingSound)
+      if (carDrivingSound.paused) {
+        carDrivingSound.play()
+      } if (frogArea[currentIndex].classList.contains(!'road')) {
+        carDrivingSound.pause()
+        carDrivingSound.currenTime = 0
+      }
+    })
+  }
+
+
+
+
+
 
 
 

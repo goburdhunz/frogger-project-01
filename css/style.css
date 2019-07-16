@@ -14,16 +14,13 @@ body {
   height: 50px; }
 
 .road {
-  background-image: url("https://media3.giphy.com/media/fmsA2RG7TKxuo/source.gif");
-  background-size: cover; }
+  background-color: black;
+  border-bottom: 2px white;
+  border-style: dashed; }
 
 .trees {
-  background-color: green; }
-
-.log {
-  background-color: brown;
-  width: 60px;
-  height: 50px; }
+  background-image: url("https://data.whicdn.com/images/153820075/original.gif");
+  background-size: cover; }
 
 .river {
   background-color: blue; }
@@ -50,12 +47,13 @@ div {
   height: 50px;
   width: 60px;
   display: inline-block;
-  margin: 0; }
+  margin: -2px; }
 
 .log {
   background-color: brown;
   width: 60px;
-  height: 50px; }
+  height: 50px;
+  border: 1px solid black; }
 
 .infoheader {
   margin: 20px;
