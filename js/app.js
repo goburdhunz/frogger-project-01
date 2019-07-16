@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const allLilypadDivs = document.querySelectorAll('.lilypad')
   const allReverseLogsDivs = document.querySelectorAll('.riverreverse')
 
-
-
   // Whole moveable area for frog
   const frogArea = document.querySelectorAll('.container div')
   console.log(frogArea)
@@ -17,7 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Header button, countdown and score display
   const startButtonDisplay = document.querySelector('.start')
   let countdownDisplay = document.querySelector('.countdown')
-  let scoreCountDisplay = document.querySelector('p span')
+  let scoreCountDisplay = document.querySelector('.score')
+  let currentLevelDisplay = document.querySelector('.level')
+  console.log(currentLevelDisplay)
 
   // interval id's
   let carObstaclesMove = null
@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let timerId = null
   let timeRemaining = +countdownDisplay.textContent
+  let currentLevel = +currentLevelDisplay.textContent
 
   // start the game = start positions and movment
   function startGame() {
@@ -103,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     killerPlantCollision()
     waterCollision()
     waterCollisionReverse()
+    winGame()
   }
 
 
@@ -154,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Starting position of rever logs/make reverse logs move
-  const reverseRiver = [0,1,2,6,7,8]
+  const reverseRiver = [0,1,6,7]
   reverseRiver.forEach(logIndex => allReverseLogsDivs[logIndex].classList.add('log'))
 
   function makeReverseLogsMove() {
@@ -219,8 +221,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-
-
   // adding the tree image class
   const treePosition = [10,12,14,16,18]
   treePosition.forEach(logIndex => allTreesDivs[logIndex].classList.add('treeimages'))
@@ -231,10 +231,24 @@ document.addEventListener('DOMContentLoaded', () => {
   killerPlantPosition.forEach(logIndex => allLilypadDivs[logIndex].classList.add('killerplant'))
 
 
+  // Reset the frog to its starting position
   function breakGame() {
     frogArea[currentIndex].classList.remove('frog')
     currentIndex = 105
     frogArea[currentIndex].classList.add('frog')
+  }
+
+  // Game won when this is called nd level incremented
+  function winGame() {
+    if (frogArea[currentIndex].classList.contains('lilypad')) {
+      frogArea[currentIndex].classList.remove('frog')
+      frogArea[105].classList.add('frog')
+      currentLevel++
+      currentLevelDisplay.textContent = currentLevel
+      carObstaclesMove = setInterval(makeCarsMove,450)
+      logObstaclesMove = setInterval(makeLogsMove,750)
+      makeReverseMove = setInterval(makeReverseLogsMove,450)
+    }
   }
 
 
