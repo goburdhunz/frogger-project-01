@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Whole moveable area for frog
   const frogArea = document.querySelectorAll('.container div')
-  console.log(frogArea)
 
   // Header button, countdown and score display
   const startButtonDisplay = document.querySelector('.start')
@@ -69,19 +68,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     switch(e.keyCode) {
       case 37:
-        if(currentIndex % width !== 0) currentIndex -= 1
+        if(
+          currentIndex % width !== 0 &&
+          !frogArea[currentIndex - 1].classList.contains('treeimages')
+        ) currentIndex -= 1
         // left
         break
       case 38:
-        if(currentIndex - width >= 0) currentIndex -= width
+        if(
+          currentIndex - width >= 0 &&
+          !frogArea[currentIndex - width].classList.contains('treeimages')
+        ) currentIndex -= width
         // up
         break
       case 39:
-        if(currentIndex % width < width - 1) currentIndex += 1
+        if(
+          currentIndex % width < width - 1 &&
+          !frogArea[currentIndex + 1].classList.contains('treeimages')
+        ) currentIndex += 1
         // right
         break
       case 40:
-        if(currentIndex + width < width * width) currentIndex += width
+        if(
+          currentIndex + width < width * width &&
+          !frogArea[currentIndex + width].classList.contains('treeimages')
+        ) currentIndex += width
         // down
         break
     }
@@ -89,12 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
     frogArea[currentIndex].classList.add('frog')
     carCollision()
     killerPlantCollision()
-    occupyTreeSpace()
     waterCollision()
   }
 
 
-  // Starting position/make obstacles move
+  // Starting position of cars/make cars move
   const carIndices = [0,4,8,12,16,20,24,28,32,36]
   carIndices.forEach(carIndex => allRoadDivs[carIndex].classList.add('car'))
 
@@ -113,10 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // playDrivingSound()
   }
 
+  // Starting position of logs/make logs move
   const logIndices = [1,2,3,5,6,7,12,13,14,17,18,19]
   logIndices.forEach(logIndex => allRiverDivs[logIndex].classList.add('log'))
 
   function makeLogsMove() {
+    ridingTheLogs()
     for (let i = logIndices.length-1; i >= 0; i--) {
       allRiverDivs[logIndices[i]].classList.remove('log')
 
@@ -127,7 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       allRiverDivs[logIndices[i]].classList.add('log')
     }
-    ridingTheLogs()
   }
 
   function ridingTheLogs() {
@@ -140,11 +151,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
+  // Starting position of rever logs/make reverse logs move
   const reverseRiver = [0,1,2,6,7,8]
   reverseRiver.forEach(logIndex => allReverseLogsDivs[logIndex].classList.add('log'))
 
   function makeReverseLogsMove() {
+    ridingTheLogsBackwards()
     for (let i = 0; i < reverseRiver.length; i++) {
       allReverseLogsDivs[reverseRiver[i]].classList.remove('log')
 
@@ -155,7 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       allReverseLogsDivs[reverseRiver[i]].classList.add('log')
     }
-    ridingTheLogsBackwards()
   }
 
   function ridingTheLogsBackwards() {
@@ -183,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
-  // When a frog runs into a frog
+  // When a frog runs into a killerplant
   function killerPlantCollision() {
     if (frogArea[currentIndex].classList.contains('killerplant')) {
       console.log('KillerPlantbreak')
@@ -204,20 +215,9 @@ document.addEventListener('DOMContentLoaded', () => {
   treePosition.forEach(logIndex => allTreesDivs[logIndex].classList.add('treeimages'))
 
 
-  // Adding logic so the frog cannot occupy the same space as the tree
-  function occupyTreeSpace() {
-    if (frogArea[currentIndex].classList.contains('treeimages')) {
-      console.log('hmm there is a tree here')
-    }
-  }
-
   // Added a killer plant next to the 'safety' lilypads
   const killerPlantPosition = [1,3,5,7,9]
   killerPlantPosition.forEach(logIndex => allLilypadDivs[logIndex].classList.add('killerplant'))
-
-  // Block access to these elements divs within frogarea - remove fropm frogArea array
-  // frogArea[1,3,5,7,9] - break, no go area for frog
-  // treeArea[1,3,5,7,9] - break, no go area for frog
 
 
 
