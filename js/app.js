@@ -251,6 +251,12 @@ document.addEventListener('DOMContentLoaded', () => {
     currentScore = 0
     scoreCountDisplay.textContent = currentScore
     currentLevelDisplay.textContent = 1
+    clearInterval(carObstaclesMove)
+    clearInterval(logObstaclesMove)
+    clearInterval(makeReverseMove)
+    carObstaclesMove = setInterval(makeCarsMove,1000)
+    logObstaclesMove = setInterval(makeLogsMove,1200)
+    makeReverseMove = setInterval(makeReverseLogsMove,1000)
   }
 
   // Game won when this is called and level incremented
@@ -265,6 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // increment speed as the levels increase
   let cartiming = 1000
   let logtiming = 1200
   let reverselogtiming = 1000
@@ -279,15 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
       makeReverseMove = setInterval(makeReverseLogsMove,(reverselogtiming -= 200))
     }
   }
-
-
-
-
-
-
-
-
-
+  
   // Create score logic
   function scoreMe() {
     if (frogArea[currentIndex].classList.contains('road')) {
