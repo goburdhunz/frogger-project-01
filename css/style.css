@@ -36,7 +36,8 @@ body {
 .frog {
   background-image: url("https://giffiles.alphacoders.com/844/8447.gif");
   background-size: 85%;
-  padding-bottom: 50px; }
+  padding-bottom: 50px;
+  transition: 0.5s; }
 
 .car {
   background-image: url("http://media.omaketheater.com/goodies/uploads/nyan-car.gif");

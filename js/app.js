@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Whole moveable area for frog
   const frogArea = document.querySelectorAll('.container div')
-  console.log(frogArea)
 
   // Header button, countdown and score display
   const startButtonDisplay = document.querySelector('.start')
@@ -36,9 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // start the game = start positions and movment
   function startGame() {
-    carObstaclesMove = setInterval(makeCarsMove,500)
-    logObstaclesMove = setInterval(makeLogsMove,800)
-    makeReverseMove = setInterval(makeReverseLogsMove,500)
+    carObstaclesMove = setInterval(makeCarsMove,1000)
+    logObstaclesMove = setInterval(makeLogsMove,1200)
+    makeReverseMove = setInterval(makeReverseLogsMove,1000)
     const moveFrog = document.addEventListener('keyup', moveMyFrog)
   }
 
@@ -82,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
           currentIndex - width >= 0 &&
           !frogArea[currentIndex - width].classList.contains('treeimages')
         ) {
-          console.log(currentIndex)
           currentIndex -= width
           scoreMe()
         }
@@ -111,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
     waterCollisionReverse()
     winGame()
   }
-
 
   // Starting position of cars/make cars move
   const carIndices = [0,4,8,12,16,20,24,28,32,36]
@@ -151,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // frog riding the moving logs
   function ridingTheLogs() {
     for (let i = logIndices.length-1; i >= 0; i--) {
       if (allRiverDivs[logIndices[i]].classList.contains('frog')) {
@@ -161,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Starting position of rever logs/make reverse logs move
+  // Starting position of reverse logs/make reverse logs move
   const reverseRiver = [0,1,6,7]
   reverseRiver.forEach(logIndex => allReverseLogsDivs[logIndex].classList.add('log'))
 
@@ -180,6 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // riding the reverse logs
   function ridingTheLogsBackwards() {
     for (let i = 0; i < reverseRiver.length; i++) {
       if (allReverseLogsDivs[reverseRiver[i]].classList.contains('frog')) {
@@ -262,14 +261,31 @@ document.addEventListener('DOMContentLoaded', () => {
       currentLevel++
       currentIndex = 105
       currentLevelDisplay.textContent = currentLevel
+      timingIncrement()
+    }
+  }
+
+  let cartiming = 1000
+  let logtiming = 1200
+  let reverselogtiming = 1000
+
+  function timingIncrement() {
+    if (+currentLevelDisplay.textContent > 1) {
       clearInterval(carObstaclesMove)
       clearInterval(logObstaclesMove)
       clearInterval(makeReverseMove)
-      carObstaclesMove = setInterval(makeCarsMove,450)
-      logObstaclesMove = setInterval(makeLogsMove,750)
-      makeReverseMove = setInterval(makeReverseLogsMove,450)
+      carObstaclesMove = setInterval(makeCarsMove,(cartiming -= 200))
+      logObstaclesMove = setInterval(makeLogsMove,(logtiming -= 200))
+      makeReverseMove = setInterval(makeReverseLogsMove,(reverselogtiming -= 200))
     }
   }
+
+
+
+
+
+
+
 
 
   // Create score logic
@@ -281,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
       currentScore += 5
       scoreCountDisplay.textContent = currentScore
     } else if ((frogArea[currentIndex].classList.contains('log'))) {
-      currentScore += 20
+      currentScore += 30
       scoreCountDisplay.textContent = currentScore
     } else if ((frogArea[currentIndex].classList.contains('lilypad'))) {
       currentScore += 50
