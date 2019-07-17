@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(timeRemaining === 0) {
       clearInterval(timerId)
       timerId = null
+      countdownBreak()
     }
   }
 
@@ -259,6 +260,21 @@ document.addEventListener('DOMContentLoaded', () => {
     makeReverseMove = setInterval(makeReverseLogsMove,1000)
   }
 
+  // If the countdown reaches 0 - things stop moving and frog cannot be moved
+  function countdownBreak() {
+    frogArea[currentIndex].classList.remove('frog')
+    currentIndex = 105
+    frogArea[currentIndex].classList.add('frog')
+    currentScore = 0
+    scoreCountDisplay.textContent = currentScore
+    currentLevelDisplay.textContent = 1
+    clearInterval(carObstaclesMove)
+    clearInterval(logObstaclesMove)
+    clearInterval(makeReverseMove)
+    const stopFrog = document.removeEventListener('keyup', moveMyFrog)
+    countdownDisplay.textContent = 30
+  }
+
   // Game won when this is called and level incremented
   function winGame() {
     if (frogArea[currentIndex].classList.contains('lilypad')) {
@@ -286,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
       makeReverseMove = setInterval(makeReverseLogsMove,(reverselogtiming -= 200))
     }
   }
-  
+
   // Create score logic
   function scoreMe() {
     if (frogArea[currentIndex].classList.contains('road')) {
