@@ -3,7 +3,7 @@
 
 body {
   margin: 0;
-  background-color: papayawhip; }
+  background-color: black; }
 
 .container {
   width: 55%;
@@ -16,7 +16,8 @@ body {
 
 .road {
   background-color: black;
-  border-bottom: 2px white;
+  background-image: url("https://media3.giphy.com/media/fmsA2RG7TKxuo/source.gif");
+  background-size: cover;
   border-style: dashed; }
 
 .trees {
@@ -61,7 +62,8 @@ div {
   display: flex;
   justify-content: center;
   justify-content: space-between;
-  font-size: 25px; }
+  font-size: 25px;
+  color: white; }
 
 .treeimages {
   background-image: url("https://i.gifer.com/2V51.gif");

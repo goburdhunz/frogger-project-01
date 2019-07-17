@@ -77,11 +77,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // left
         break
       case 38:
+
         if(
           currentIndex - width >= 0 &&
           !frogArea[currentIndex - width].classList.contains('treeimages')
-        ) currentIndex -= width
-        scoreMe()
+        ) {
+          console.log(currentIndex)
+          currentIndex -= width
+          scoreMe()
+        }
         // up
         break
       case 39:
@@ -247,6 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
     frogArea[currentIndex].classList.add('frog')
     currentScore = 0
     scoreCountDisplay.textContent = currentScore
+    currentLevelDisplay.textContent = 1
   }
 
   // Game won when this is called and level incremented
@@ -255,12 +260,17 @@ document.addEventListener('DOMContentLoaded', () => {
       frogArea[currentIndex].classList.remove('frog')
       frogArea[105].classList.add('frog')
       currentLevel++
+      currentIndex = 105
       currentLevelDisplay.textContent = currentLevel
+      clearInterval(carObstaclesMove)
+      clearInterval(logObstaclesMove)
+      clearInterval(makeReverseMove)
       carObstaclesMove = setInterval(makeCarsMove,450)
       logObstaclesMove = setInterval(makeLogsMove,750)
       makeReverseMove = setInterval(makeReverseLogsMove,450)
     }
   }
+
 
   // Create score logic
   function scoreMe() {
@@ -274,8 +284,10 @@ document.addEventListener('DOMContentLoaded', () => {
       currentScore += 20
       scoreCountDisplay.textContent = currentScore
     } else if ((frogArea[currentIndex].classList.contains('lilypad'))) {
-      currentScore += 10
+      currentScore += 50
       scoreCountDisplay.textContent = currentScore
+    } else if ((frogArea[currentIndex].classList.contains('pavement'))) {
+      currentScore += 0
     }
   }
 
