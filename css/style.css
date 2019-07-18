@@ -29,8 +29,7 @@ body {
 .lilypad {
   background-image: url("https://78.media.tumblr.com/6d8cfc8333b20bfaa977336030978b9f/tumblr_npmvlvxBv01r9co7bo1_500.gif");
   background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #98fb98; }
+  background-repeat: no-repeat; }
 
 .car {
   background-image: url("images/foodtruck.gif");
@@ -136,8 +135,8 @@ img {
   background-repeat: no-repeat; }
 
 .killerplant {
-  background-image: url("images/killerplant2.gif");
-  background-size: 100%; }
+  background-image: url("images/killerplant2.gif"), url(https://i.ytimg.com/vi/zUkH1hRXIDM/maxresdefault.jpg);
+  background-size: cover; }
 
 .intructions {
   color: white;
