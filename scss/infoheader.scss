@@ -1,8 +1,57 @@
 .infoheader {
-  margin: 20px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-right: 10px;
   display: flex;
   justify-content: center;
   justify-content: space-between;
-  font-size: 25px;
+  font-size: 55px;
+  font-family: 'Bahianita', cursive;
   color: white;
+  background-color: #f54b42;
+  align-items: center;
+}
+
+.title {
+  font-size: 75px;
+}
+
+.title:hover {
+  color: rgba(15, 104, 126, 0.6);
+}
+
+.infoheader p span {
+  font-size: 55px;
+  font-family: 'Bahianita', cursive;
+  color: white;
+}
+
+.infoheader:hover {
+  color:black;
+}
+
+.start {
+  font-size: 55px;
+  font-family: 'Bahianita', cursive;
+  color: black;
+}
+
+.start:hover {
+  background-color: black;
+  color: white;
+}
+
+.start:active {
+  position: relative;
+  border-right: 4px solid white;
+  border-bottom: 4px solid white;
+  bottom: 2px;
+  box-shadow: none;
+}
+
+img {
+  width: 154px;
+  height: 72px;
 }

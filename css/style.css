@@ -3,29 +3,27 @@
 
 body {
   margin: 0;
-  background-color: black; }
+  height: 690px; }
 
 .container {
   width: 55%;
-  margin: 0 auto;
-  text-align: center; }
+  margin: 0;
+  display: inline;
+  float: right; }
 
 .pavement {
-  background-color: grey;
+  background-color: #4d4d4d;
   height: 50px; }
 
 .road {
-  background-color: black;
-  background-image: url("https://media3.giphy.com/media/fmsA2RG7TKxuo/source.gif");
-  background-size: cover;
-  border-style: dashed; }
+  border-bottom: 2px dashed black; }
 
 .trees {
-  background-image: url("https://data.whicdn.com/images/153820075/original.gif");
+  background-image: url("https://ak2.picdn.net/shutterstock/videos/872872/thumb/1.jpg");
   background-size: cover; }
 
 .river {
-  background-color: blue; }
+  background-image: url("http://musicments.com/img/d_default/seamless-water-texture-animation/seamless-water-texture-animation-flowing-5c74516580da9.gif"); }
 
 .lilypad {
   background-image: url("https://78.media.tumblr.com/6d8cfc8333b20bfaa977336030978b9f/tumblr_npmvlvxBv01r9co7bo1_500.gif");
@@ -34,17 +32,16 @@ body {
   background-color: #98fb98; }
 
 .frog {
-  background-image: url("https://giffiles.alphacoders.com/844/8447.gif");
-  background-size: 85%;
-  padding-bottom: 50px;
-  transition: 0.5s; }
+  background-image: url("images/froggo.gif");
+  background-size: 80%;
+  background-repeat: no-repeat; }
 
 .car {
-  background-image: url("http://media.omaketheater.com/goodies/uploads/nyan-car.gif");
-  background-size: 100%; }
+  background-image: url("images/foodtruck.gif");
+  background-size: 120%; }
 
 .riverreverse {
-  background-color: blue; }
+  background-image: url("http://musicments.com/img/d_default/seamless-water-texture-animation/seamless-water-texture-animation-flowing-5c74516580da9.gif"); }
 
 div {
   height: 55px;
@@ -53,25 +50,95 @@ div {
   margin: -2px; }
 
 .log {
-  background-color: brown;
-  height: 55px;
-  width: 65px;
-  border: 1px solid black; }
+  background-color: #541515;
+  background-image: url("https://img.clipartimage.com/wood-sign-transparent-png-pictures-free-icons-and-png-backgrounds-free-wooden-sign-clipart-no-background-600_338.png");
+  background-size: 300%; }
 
 .infoheader {
-  margin: 20px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-right: 10px;
   display: flex;
   justify-content: center;
   justify-content: space-between;
-  font-size: 25px;
+  font-size: 55px;
+  font-family: 'Bahianita', cursive;
+  color: white;
+  background-color: #f54b42;
+  align-items: center; }
+
+.title {
+  font-size: 75px; }
+
+.title:hover {
+  color: rgba(15, 104, 126, 0.6); }
+
+.infoheader p span {
+  font-size: 55px;
+  font-family: 'Bahianita', cursive;
   color: white; }
 
+.infoheader:hover {
+  color: black; }
+
+.start {
+  font-size: 55px;
+  font-family: 'Bahianita', cursive;
+  color: black; }
+
+.start:hover {
+  background-color: black;
+  color: white; }
+
+.start:active {
+  position: relative;
+  border-right: 4px solid white;
+  border-bottom: 4px solid white;
+  bottom: 2px;
+  box-shadow: none; }
+
+img {
+  width: 154px;
+  height: 72px; }
+
 .treeimages {
-  background-image: url("https://i.gifer.com/2V51.gif");
-  background-size: 90%; }
+  background-image: url("images/treee.jpeg");
+  background-size: 80%;
+  background-repeat: no-repeat; }
 
 .killerplant {
   background-image: url("http://www.skytyrannosaur.com/wp-content/uploads/2015/12/lilypad_snap.gif");
   background-size: 100%; }
+
+.intructions {
+  color: white;
+  width: 500px;
+  height: 530px;
+  display: inline-flex;
+  text-align: center;
+  margin-left: 50px;
+  margin-top: 32px;
+  border-right: 10px solid black;
+  border-bottom: 10px solid black;
+  border-left: 4px solid black;
+  border-top: 4px solid black;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 25px;
+  background-color: #f54b42; }
+
+.intructions span {
+  font-size: 45px; }
+
+.list {
+  padding-bottom: 10px;
+  border-bottom: 10px dashed black; }
+
+.list:hover {
+  color: black; }
+
+li:hover {
+  color: black; }
 
 /*# sourceMappingURL=style.css.map */

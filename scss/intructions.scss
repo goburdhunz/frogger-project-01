@@ -1,0 +1,33 @@
+.intructions {
+  color: white;
+  width: 500px;
+  height: 530px;
+  display:inline-flex;
+  text-align: center;
+  margin-left: 50px;
+  margin-top: 32px;
+  border-right: 10px solid black;
+  border-bottom: 10px solid black;
+  border-left: 4px solid black;
+  border-top: 4px solid black;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 25px;
+  background-color: #f54b42;
+}
+
+.intructions span {
+  font-size: 45px;
+}
+
+.list {
+  padding-bottom: 10px;
+  border-bottom: 10px dashed black;
+}
+
+.list:hover {
+  color: black;
+}
+
+li:hover {
+  color: black;
+}
