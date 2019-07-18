@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
     clearInterval(logObstaclesMove)
     clearInterval(makeReverseMove)
     const stopFrog = document.removeEventListener('keyup', moveMyFrog)
-    timeRemaining = 10
+    timeRemaining = 60
   }
 
   // Game won when this is called and level incremented
