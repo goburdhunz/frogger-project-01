@@ -252,13 +252,15 @@ document.addEventListener('DOMContentLoaded', () => {
     frogArea[currentIndex].classList.add('frog')
     currentScore = 0
     scoreCountDisplay.textContent = currentScore
-    currentLevelDisplay.textContent = 1
+    currentLevel = 1
+    currentLevelDisplay.textContent = currentLevel
     clearInterval(carObstaclesMove)
     clearInterval(logObstaclesMove)
     clearInterval(makeReverseMove)
     carObstaclesMove = setInterval(makeCarsMove,1000)
     logObstaclesMove = setInterval(makeLogsMove,1200)
     makeReverseMove = setInterval(makeReverseLogsMove,1000)
+    timingIncrement()
   }
 
   // If the countdown reaches 0 - things stop moving and frog cannot be moved
@@ -269,12 +271,14 @@ document.addEventListener('DOMContentLoaded', () => {
     frogArea[currentIndex].classList.add('frog')
     currentScore = 0
     scoreCountDisplay.textContent = currentScore
-    currentLevelDisplay.textContent = 1
+    currentLevel = 1
+    currentLevelDisplay.textContent = currentLevel
     clearInterval(carObstaclesMove)
     clearInterval(logObstaclesMove)
     clearInterval(makeReverseMove)
     const stopFrog = document.removeEventListener('keyup', moveMyFrog)
     timeRemaining = 60
+    timingIncrement()
   }
 
   // Level won when this is called and level incremented
@@ -300,9 +304,9 @@ document.addEventListener('DOMContentLoaded', () => {
       clearInterval(carObstaclesMove)
       clearInterval(logObstaclesMove)
       clearInterval(makeReverseMove)
-      carObstaclesMove = setInterval(makeCarsMove,(cartiming -= 200))
-      logObstaclesMove = setInterval(makeLogsMove,(logtiming -= 200))
-      makeReverseMove = setInterval(makeReverseLogsMove,(reverselogtiming -= 200))
+      carObstaclesMove = setInterval(makeCarsMove,(cartiming -= 100))
+      logObstaclesMove = setInterval(makeLogsMove,(logtiming -= 100))
+      makeReverseMove = setInterval(makeReverseLogsMove,(reverselogtiming -= 100))
     }
   }
 

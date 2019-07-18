@@ -140,7 +140,7 @@ img {
   background-size: cover; }
 
 .intructions {
-  color: white;
+  color: black;
   width: 500px;
   height: 590px;
   display: inline-flex;
@@ -163,11 +163,11 @@ img {
   border-bottom: 10px dashed black; }
 
 .list:hover {
-  color: black;
+  color: white;
   transition: 1s; }
 
 li:hover {
-  color: black;
+  color: white;
   transition: 1s; }
 
 #overlay {
