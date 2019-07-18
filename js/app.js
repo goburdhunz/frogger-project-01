@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     logObstaclesMove = setInterval(makeLogsMove,1200)
     makeReverseMove = setInterval(makeReverseLogsMove,1000)
     const moveFrog = document.addEventListener('keyup', moveMyFrog)
+    off()
   }
 
   // timer countdown
@@ -262,6 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // If the countdown reaches 0 - things stop moving and frog cannot be moved
   function countdownBreak() {
+    on()
     frogArea[currentIndex].classList.remove('frog')
     currentIndex = 105
     frogArea[currentIndex].classList.add('frog')
@@ -272,8 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
     clearInterval(logObstaclesMove)
     clearInterval(makeReverseMove)
     const stopFrog = document.removeEventListener('keyup', moveMyFrog)
-    // console.log(+countdownDisplay.textContent)
-    timeRemaining = 30
+    timeRemaining = 10
   }
 
   // Game won when this is called and level incremented
@@ -324,8 +325,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+  function on() {
+    document.getElementById('overlay').style.display = 'block'
+  }
 
-
+  function off() {
+    document.getElementById('overlay').style.display = 'none'
+  }
 
 
 

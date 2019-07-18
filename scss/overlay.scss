@@ -1,0 +1,32 @@
+  #overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 55.3%; /* Full width (cover the whole page) */
+  height: 595px;; /* Full height (cover the whole page) */
+  top: 95px;
+  left: 550px;
+  right: 0;
+  bottom:0px;
+  background-color: rgba(0,0,0,0.7); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+#overlay p {
+  font-size: 25px;
+  color: #f54b42;
+  top: 450px;
+  left: 290px;
+  font-family: 'Bahianita', cursive;
+  position: absolute;
+  z-index: 3;
+}
+
+
+#timesup {
+  display: inline;
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  width:400px;
+  height:400px;
+}
