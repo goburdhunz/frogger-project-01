@@ -17,7 +17,8 @@ body {
   height: 50px; }
 
 .road {
-  background-color: #202020; }
+  background-color: #202020;
+  border-bottom: 2px dashed white; }
 
 .trees {
   background-image: url("https://ak2.picdn.net/shutterstock/videos/872872/thumb/1.jpg");
