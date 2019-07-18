@@ -8,10 +8,9 @@ body {
 
 .container {
   width: 55%;
-  margin-right: 3px;
+  margin-right: 25px;
   display: inline;
-  float: right;
-  background-color: #202020; }
+  float: right; }
 
 .pavement {
   background-color: #4d4d4d;
@@ -35,19 +34,8 @@ body {
 
 .car {
   background-image: url("images/foodtruck.gif");
-  background-size: 120%;
-  animation-name: animateCar;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear; }
+  background-size: 120%; }
 
-@keyframes animateCar {
-  0% {
-    transform: translateX(0); }
-  99% {
-    transform: translateX(100%); }
-  100% {
-    transform: translateX(0); } }
 .riverreverse {
   background-image: url("http://musicments.com/img/d_default/seamless-water-texture-animation/seamless-water-texture-animation-flowing-5c74516580da9.gif"); }
 
@@ -96,9 +84,25 @@ div {
   font-family: 'Bahianita', cursive;
   color: black; }
 
-.start:hover {
+@-webkit-keyframes blackWhite {
+  0% {
+    background-color: white;
+    color: black; }
+  50% {
+    background-color: white;
+    color: black; }
+  51% {
+    background-color: black;
+    color: white; }
+  100% {
+    background-color: black;
+    color: white; } }
+.start {
   background-color: black;
-  color: white; }
+  color: white;
+  -webkit-animation-name: blackWhite;
+  -webkit-animation-iteration-count: 15;
+  -webkit-animation-duration: 1.5s; }
 
 .start:active {
   position: relative;
@@ -112,12 +116,12 @@ img {
   height: 72px; }
 
 .countdown {
-  width: 55px;
+  width: 65px;
   height: 70px;
   background-color: white;
   border-radius: 100%;
   padding-top: 8px;
-  padding-left: 8px;
+  padding-left: 15px;
   color: black; }
 
 .frog {
@@ -126,13 +130,13 @@ img {
   background-repeat: no-repeat; }
 
 .treeimages {
-  background-image: url("images/treee.jpeg"), url("https://ak2.picdn.net/shutterstock/videos/872872/thumb/1.jpg");
+  background-image: url("images/tree2.png"), url("https://ak2.picdn.net/shutterstock/videos/872872/thumb/1.jpg");
   background-size: 80%, cover;
   background-position: bottom;
   background-repeat: no-repeat; }
 
 .killerplant {
-  background-image: url("http://www.skytyrannosaur.com/wp-content/uploads/2015/12/lilypad_snap.gif");
+  background-image: url("images/killerplant2.gif");
   background-size: 100%; }
 
 .intructions {

@@ -1,33 +1,21 @@
 .car {
   background-image: url('images/foodtruck.gif');
   background-size: 120%;
-  animation-name: animateCar;
-  animation-duration: 1s;
-  animation-iteration-count:infinite;
-  animation-timing-function: linear;
-}
-
-@keyframes animateCar {
-  0% { transform: translateX(0); }
-  99% { transform: translateX(100%); }
-  100% { transform: translateX(0); }
 }
 
 
 
 
 
-
-
-
-// .car.moving {
-//   animation: movesmooth 1s infinite;
-//   animation-duration: 10s;
+// @keyframes animateCar {
+//   0% { transform: translateX(0); }
+//   99% { transform: translateX(150%); }
+//   100% { transform: translateX(0); }
 // }
-//
-// @keyframes movesmooth {
-//   0% {left:0px; top:0px;}
-//   10% {left:65px; top:0px;}
-//   20% {left:65px; top:0px;}
-//   30% {left:65px; top:0px;}
-// }
+
+
+// 
+// animation-name: animateCar;
+// animation-duration: 0.5s;
+// animation-iteration-count:infinite;
+// animation-timing-function: linear;
