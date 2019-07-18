@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
     timeRemaining = 60
   }
 
-  // Game won when this is called and level incremented
+  // Level won when this is called and level incremented
   function winGame() {
     if (frogArea[currentIndex].classList.contains('lilypad')) {
       frogArea[currentIndex].classList.remove('frog')
@@ -294,6 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let logtiming = 1200
   let reverselogtiming = 1000
 
+  // reducing the timing with each level and in turn increasing speed of obstacles
   function timingIncrement() {
     if (+currentLevelDisplay.textContent > 1) {
       clearInterval(carObstaclesMove)
@@ -324,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
+  // toggles overlay appearing and disappearing
   function on() {
     document.getElementById('overlay').style.display = 'block'
   }
