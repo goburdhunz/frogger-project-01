@@ -163,9 +163,11 @@ img {
   border-bottom: 10px dashed black; }
 
 .list:hover {
-  color: black; }
+  color: black;
+  transition: 1s; }
 
 li:hover {
-  color: black; }
+  color: black;
+  transition: 1s; }
 
 /*# sourceMappingURL=style.css.map */
