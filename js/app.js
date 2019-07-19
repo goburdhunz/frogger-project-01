@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
     carObstaclesMove = setInterval(makeCarsMove,1000)
     logObstaclesMove = setInterval(makeLogsMove,1200)
     makeReverseMove = setInterval(makeReverseLogsMove,1000)
-    const moveFrog = document.addEventListener('keyup', moveMyFrog)
-    off()
+    document.addEventListener('keyup', moveMyFrog)
+    overlayOff()
   }
 
   // timer countdown
@@ -260,12 +260,11 @@ document.addEventListener('DOMContentLoaded', () => {
     carObstaclesMove = setInterval(makeCarsMove,1000)
     logObstaclesMove = setInterval(makeLogsMove,1200)
     makeReverseMove = setInterval(makeReverseLogsMove,1000)
-    timingIncrement()
   }
 
   // If the countdown reaches 0 - things stop moving and frog cannot be moved
   function countdownBreak() {
-    on()
+    overlayOn()
     frogArea[currentIndex].classList.remove('frog')
     currentIndex = 105
     frogArea[currentIndex].classList.add('frog')
@@ -276,9 +275,8 @@ document.addEventListener('DOMContentLoaded', () => {
     clearInterval(carObstaclesMove)
     clearInterval(logObstaclesMove)
     clearInterval(makeReverseMove)
-    const stopFrog = document.removeEventListener('keyup', moveMyFrog)
+    document.removeEventListener('keyup', moveMyFrog)
     timeRemaining = 60
-    timingIncrement()
   }
 
   // Level won when this is called and level incremented
@@ -330,11 +328,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // toggles overlay appearing and disappearing
-  function on() {
+  function overlayOn() {
     document.getElementById('overlay').style.display = 'block'
   }
 
-  function off() {
+  function overlayOff() {
     document.getElementById('overlay').style.display = 'none'
   }
 
@@ -347,33 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  // function playJumpingSound() {
-  //   frogArea.forEach(a => {
-  //     const frogJumpSound = document.createElement('AUDIO')
-  //     frogJumpSound.src = 'audio/jumpSound.mp4'
-  //     a.appendChild(frogJumpSound)
-  //     if(frogJumpSound.paused) {
-  //       frogJumpSound.play()
-  //     } else {
-  //       frogJumpSound.pause()
-  //       frogJumpSound.currenTime = 0
-  //     }
-  //   })
-  // }
-  //
-  // function playDrivingSound() {
-  //   allRoadDivs.forEach(a => {
-  //     const carDrivingSound = document.createElement('AUDIO')
-  //     carDrivingSound.src = 'audio/Urban Traffic-SoundBible.com-1217469275.wav'
-  //     a.appendChild(carDrivingSound)
-  //     if (carDrivingSound.paused) {
-  //       carDrivingSound.play()
-  //     } if (frogArea[currentIndex].classList.contains(!'road')) {
-  //       carDrivingSound.pause()
-  //       carDrivingSound.currenTime = 0
-  //     }
-  //   })
-  // }
+
 
 
 
