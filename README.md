@@ -150,7 +150,7 @@ This was another tricky side to this implementation of the game. I had multiple 
 
 ## Bugs
 
-There will always be bugs - no matter how long you spend on coding something.
+There will always be bugs - no matter how long you spend developing something.
 
 * In this game, the timing, level increment and gameplay speed gets muddled if you reach the end of the countdown and you start the game again. The speed is not incrementing correctly.
 
