@@ -103,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // down
         break
     }
-    // playJumpingSound()
     frogArea[currentIndex].classList.add('frog')
     carCollision()
     killerPlantCollision()
@@ -128,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
       allRoadDivs[carIndices[i]].classList.add('car')
     }
     frogColission()
-    // playDrivingSound()
   }
 
   // Starting position of logs/make logs move
