@@ -15,7 +15,7 @@ Launch on GitHub Pages - https://goburdhunz.github.io/frogger-project-01/
 
 ![alt text](https://i.imgur.com/SdRlFpC.png "Project screenshot")
 
-![alt text](https://i.imgur.com/5FAdJZJ.gif "Project screenshot")
+![alt text](https://i.imgur.com/PXPzAxy.png1 "Project screenshot")
 
 
 ## Brief
