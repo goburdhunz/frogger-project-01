@@ -165,9 +165,16 @@ The main blocker was the movement of the obstacles - this is something that i sp
 
 The wins were getting the main game logic working after i got over the obstacles moving block. Also, adding the overlay at the end was simpler than i thought and also the webpage outside of the game was fun to work on.
 
+## Key learnings
+ 
+The purpose of this project was to cement the basic concepts of HTML/CSS, javascript and DOM manipulation. The idea of adding different views after the HTML structure had already been loaded was a foreign concept before learning about the DOM. In this sense, the project served its purpose as I had to build the HTML structure without the help of HTML canvas and the basic logic of the game was based on DOM manipulation. I also learnt about project management and the benefits of taking the time to plan before building anything. 
+
+Moreover, there were deeper learnings in terms of how I approach problems as a whole. There were moments when I was stuck and nothing was moving forward. During these periods, I had to either stare at my screen helplessly or go out and take a walk and (hopefully) realise the solution during my break. Asking for help was something else that helped me during this project - I realised that seeking help or another viewpoint, especially in software development, is never a bad thing - even if the individual doesn't have the specific answer, they might point you in the right direction.
+
+
 ## Future content
 
-* Spent some time adding sounds which did not play very well at all and i decided to remove at this time. In a future iteration, i would like to try and add some game sounds to the movement, collisions, game music prior to start.
+* Spent some time adding sounds which did not play very well at all and I decided to remove at this time. In a future iteration, i would like to try and add some game sounds to the movement, collisions, game music prior to start.
 
 * Would also like to store the scores in memory and to display a leaderboard.
 
