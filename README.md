@@ -2,6 +2,8 @@
 
 *A vanilla javascript game*
 
+Deployed here on Github Pages - https://goburdhunz.github.io/frogger-project-01/
+
 ## Project 1: Frogger General Assembly
 
 Frogger is a classic arcade action from the 80s, originaly developed by Konami.
